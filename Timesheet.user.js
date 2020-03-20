@@ -30,7 +30,7 @@ Notification.requestPermission().then(function(result) {
 		var i=0;
 		while(i<reminderTimes.length){
 			var sh,sm;
-			sh=reminderTimes[i].substring(0,reminderTimes[i].indexOf(":")+1);
+			sh=reminderTimes[i].substring(0,reminderTimes[i].indexOf(":")-1);
 			sh=Number(sh);
 			sm=reminderTimes[i].substring(reminderTimes[i].indexOf(":")+1,reminderTimes[i].length);
 			console.log(sh+":"+sm);
