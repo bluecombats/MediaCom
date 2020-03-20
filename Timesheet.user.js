@@ -6,7 +6,7 @@
 // @grant			none
 // @include       https://groupmuk-aura.mediaocean.com/*
 // @include       http*groupmuk-aura.mediaocean.com/*
-// @version        0.32
+// @version        0.4
 // ==/UserScript==
 
 Notification.requestPermission().then(function(result) {
@@ -20,7 +20,7 @@ Notification.requestPermission().then(function(result) {
 	}
 	//set reminders times here
 	var reminderTimes=["17:20","15:50"];
-	MyVar=setInterval(function(){
+	var MyVar=setInterval(function(){
 		//get current time
 		var d,h,m,s;
 		d=new Date();
@@ -30,13 +30,13 @@ Notification.requestPermission().then(function(result) {
 		var i=0;
 		while(i<reminderTimes.length){
 			var sh,sm;
-			sh=reminderTimes[i].substring(0,reminderTimes[i].indexOf(":")-1);
-			console.log("hour:"+sh);
+			sh=reminderTimes[i].substring(0,reminderTimes[i].indexOf(":"));
+			//console.log("hour:"+sh);
 			sh=Number(sh);
 			sm=reminderTimes[i].substring(reminderTimes[i].indexOf(":")+1,reminderTimes[i].length);
-			console.log("minute:"+sm);
+			//console.log("minute:"+sm);
 			sm=Number(sm);
-			console.log(sh+":"+sm);
+			//console.log(sh+":"+sm);
 			if(sh == h && sm == m){
 				var notification=new Notification("Aura Timesheet",{
 					renotify:true
