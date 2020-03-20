@@ -6,7 +6,7 @@
 // @grant			none
 // @include       https://groupmuk-aura.mediaocean.com/*
 // @include       http*groupmuk-aura.mediaocean.com/*
-// @version        0.3
+// @version        0.32
 // ==/UserScript==
 
 Notification.requestPermission().then(function(result) {
@@ -31,10 +31,12 @@ Notification.requestPermission().then(function(result) {
 		while(i<reminderTimes.length){
 			var sh,sm;
 			sh=reminderTimes[i].substring(0,reminderTimes[i].indexOf(":")-1);
+			console.log("hour:"+sh);
 			sh=Number(sh);
 			sm=reminderTimes[i].substring(reminderTimes[i].indexOf(":")+1,reminderTimes[i].length);
-			console.log(sh+":"+sm);
+			console.log("minute:"+sm);
 			sm=Number(sm);
+			console.log(sh+":"+sm);
 			if(sh == h && sm == m){
 				var notification=new Notification("Aura Timesheet",{
 					renotify:true
