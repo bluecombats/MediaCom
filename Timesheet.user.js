@@ -6,7 +6,7 @@
 // @grant			none
 // @include       https://groupmuk-aura.mediaocean.com/*
 // @include       http*groupmuk-aura.mediaocean.com/*
-// @version        0.2
+// @version        0.3
 // ==/UserScript==
 
 Notification.requestPermission().then(function(result) {
@@ -18,31 +18,32 @@ Notification.requestPermission().then(function(result) {
 		console.log('The permission request was dismissed.');
 		return;
 	}
-  //set reminders times here
-  var reminderTimes=["17:20","15:50"];
+	//set reminders times here
+	var reminderTimes=["17:20","15:50"];
 	MyVar=setInterval(function(){
-    //get current time
-    var d,h,m,s;
-    d=new Date();
-    h=d.getHours();
-    m=d.getMinutes();
-    s=d.getSeconds();
-    var i=0;
-    while(i<reminderTimes.Length){
-      var sh,sm;
-      sh=reminderTimes[i].substring(0,reminderTimes[i].indexOf(":")+1);
-      sh=Number(sh);
-      sm=reminderTimes[i].substring(reminderTimes[i].indexOf(":")+1,reminderTimes[i].Length);
-      sm=Number(sm);
-      if(sh == h && sm == m){
-        var notification=new Notification("Aura Timesheet",{
-          renotify:true
-          ,body="https://groupmuk-aura.mediaocean.com/"
-          ,icon="https://pub-resource-viewport.mediaocean.com/viewport/branding/rodick/2020.1.2/images/favicon.ico"
-        }
-      }
-      i+=1;
-    }
+		//get current time
+		var d,h,m,s;
+		d=new Date();
+		h=d.getHours();
+		m=d.getMinutes();
+		s=d.getSeconds();
+		var i=0;
+		while(i<reminderTimes.length){
+			var sh,sm;
+			sh=reminderTimes[i].substring(0,reminderTimes[i].indexOf(":")+1);
+			sh=Number(sh);
+			sm=reminderTimes[i].substring(reminderTimes[i].indexOf(":")+1,reminderTimes[i].length);
+			console.log(sh+":"+sm);
+			sm=Number(sm);
+			if(sh == h && sm == m){
+				var notification=new Notification("Aura Timesheet",{
+					renotify:true
+					,body:"https://groupmuk-aura.mediaocean.com/"
+					,icon:"https://pub-resource-viewport.mediaocean.com/viewport/branding/rodick/2020.1.2/images/favicon.ico"
+				});
+			}
+			i+=1;
+		}
 	},3000);
 });
 //console.log("end of loop");
