@@ -11,7 +11,7 @@
 // @grant		none
 // @include		https://groupmuk-aura.mediaocean.com/*
 // @include		http*groupmuk-aura.mediaocean.com/*
-// @version		0.55
+// @version		0.6
 // ==/UserScript==
 //https://www.tampermonkey.net/documentation.php?version=4.9&ext=dhdg
 Notification.requestPermission().then(function(result) {
@@ -55,6 +55,7 @@ Notification.requestPermission().then(function(result) {
 			}
 			i+=1;
 		}
-	},3000);
+	//every 30 seconds refresh
+	},30000);
 });
 //console.log("end of loop");
