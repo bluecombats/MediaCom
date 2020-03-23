@@ -3,14 +3,17 @@
 // @author		James Clare
 // @namespace		https://github.com/bluecombats/MediaCom/
 // @updateURL		https://github.com/bluecombats/MediaCom/raw/master/Timesheet.user.js
+// @downloadURL		https://github.com/bluecombats/MediaCom/raw/master/Timesheet.user.js
+// @supportURL		https://github.com/bluecombats/MediaCom/issues
+// @run-at		document-end
 // @description		Sends notifications from the timesheet website at set time to remind to enter in work.
 // @icon      		https://pub-resource-viewport.mediaocean.com/viewport/branding/rodick/2020.1.2/images/favicon.ico
 // @grant		none
 // @include		https://groupmuk-aura.mediaocean.com/*
 // @include		http*groupmuk-aura.mediaocean.com/*
-// @version		0.5
+// @version		0.55
 // ==/UserScript==
-
+//https://www.tampermonkey.net/documentation.php?version=4.9&ext=dhdg
 Notification.requestPermission().then(function(result) {
 	if (result === 'denied') {
 		console.log('Permission wasn\'t granted. Allow a retry.');
