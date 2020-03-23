@@ -1,12 +1,14 @@
 // ==UserScript==
-// @name          TimeSheet reminders
-// @namespace     https://github.com/bluecombats/MediaCom/
-// @description	  Sends notifications from the timesheet website at set time to remind to enter in work.
+// @name		TimeSheet reminders
+// @author		James Clare
+// @namespace		https://github.com/bluecombats/MediaCom/
+// @updateURL		https://github.com/bluecombats/MediaCom/raw/master/Timesheet.user.js
+// @description		Sends notifications from the timesheet website at set time to remind to enter in work.
 // @icon      		https://pub-resource-viewport.mediaocean.com/viewport/branding/rodick/2020.1.2/images/favicon.ico
-// @grant			none
-// @include       https://groupmuk-aura.mediaocean.com/*
-// @include       http*groupmuk-aura.mediaocean.com/*
-// @version        0.4
+// @grant		none
+// @include		https://groupmuk-aura.mediaocean.com/*
+// @include		http*groupmuk-aura.mediaocean.com/*
+// @version		0.5
 // ==/UserScript==
 
 Notification.requestPermission().then(function(result) {
@@ -38,11 +40,15 @@ Notification.requestPermission().then(function(result) {
 			sm=Number(sm);
 			//console.log(sh+":"+sm);
 			if(sh == h && sm == m){
-				var notification=new Notification("Aura Timesheet",{
+				var title="Aura Timesheet";
+				var options ={
 					renotify:true
+					,requireInteraction: true
+					,tag:sh+":"+sm
 					,body:"https://groupmuk-aura.mediaocean.com/"
 					,icon:"https://pub-resource-viewport.mediaocean.com/viewport/branding/rodick/2020.1.2/images/favicon.ico"
-				});
+				}
+				var notification=new Notification(title, options);
 			}
 			i+=1;
 		}
